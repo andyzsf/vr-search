@@ -1,0 +1,25 @@
+{
+  "name": "3d-search",
+  "authors": [
+    "Fengda HUANG <h@phodal.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "three.js": "threejs#*",
+    "requirejs": "~2.1.22",
+    "leapjs": "~0.6.4"
+  }
+}
