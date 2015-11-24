@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/phodal/3d-search/issues"
   },
-  "homepage": "https://github.com/phodal/3d-search#readme"
+  "homepage": "https://github.com/phodal/3d-search#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "leapjs": "^0.6.4",
+    "node-hmd": "^0.2.1",
+    "ws": "^0.8.0"
+  }
 }
