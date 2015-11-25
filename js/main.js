@@ -9,6 +9,7 @@ requirejs.config({
     "three": "js/libs/three.min",
     "leapjs": "js/libs/leap-0.6.4.min",
     "leap.screen-position": "js/libs/leap.screen-position",
+    "leap.hand-entry": "js/libs/leap.hand-entry",
     leapjswithplugins: "js/libs/leap-plugins-0.11.min"
   },
   shim: {
@@ -23,6 +24,10 @@ requirejs.config({
       exports: 'Leap',
       deps: ['leapjs']
     },
+    'leap.hand-entry': {
+      exports: 'Leap',
+      deps: ['leapjs']
+    },
     three: {
       exports: 'THREE'
     }
@@ -30,15 +35,23 @@ requirejs.config({
 });
 
 
-require(["three", "leapjs", "leap.screen-position"], function (THREE, Leap) {
+require(["three", "leapjs", "leap.screen-position", "leap.hand-entry"], function (THREE, Leap) {
   var cats = {};
 
   Leap.loop(function (frame) {
-    frame.hands.forEach(function (hand, index) {
-      var cat = ( cats[index] || (cats[index] = new Cat()) );
-      cat.setTransform(hand.screenPosition(), hand.roll());
+      frame.hands.forEach(function (hand, index) {
+        var cat = ( cats[index] || (cats[index] = new Cat()) );
+        cat.setTransform(hand.screenPosition(), hand.roll());
+      });
+    })
+    .use('handEntry')
+    .use('screenPosition', {scale: 0.25})
+    .on('handFound', function (hand) {
+      console.log('hand found', hand);
+    })
+    .on('handLost', function (hand) {
+      console.log('hand lost', hand);
     });
-  }).use('screenPosition', {scale: 0.25});
 
 
   var Cat = function () {
