@@ -20,6 +20,7 @@
   "dependencies": {
     "three.js": "threejs#*",
     "requirejs": "~2.1.22",
-    "leapjs": "~0.6.4"
+    "leapjs": "~0.6.4",
+    "leapjs-plugins": "~0.1.11"
   }
 }
