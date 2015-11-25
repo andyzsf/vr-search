@@ -4,13 +4,13 @@
 
 
 requirejs.config({
-  baseUrl: "",
+  baseUrl: "js/",
   paths: {
-    "three": "js/libs/three.min",
-    "leapjs": "js/libs/leap-0.6.4.min",
-    "leap.screen-position": "js/libs/leap.screen-position",
-    "leap.hand-entry": "js/libs/leap.hand-entry",
-    leapjswithplugins: "js/libs/leap-plugins-0.11.min"
+    "three": "libs/three.min",
+    "leapjs": "libs/leap-0.6.4.min",
+    "leap.screen-position": "libs/leap.screen-position",
+    "leap.hand-entry": "libs/leap.hand-entry",
+    leapjswithplugins: "libs/leap-plugins-0.11.min"
   },
   shim: {
     'leapjs': {
@@ -35,7 +35,7 @@ requirejs.config({
 });
 
 
-require(["three", "leapjs", "leap.screen-position", "leap.hand-entry"], function (THREE, Leap) {
+require(["three", "leapjs", "cat", "leap.screen-position", "leap.hand-entry"], function (THREE, Leap, Cat) {
   var cats = {};
 
   Leap.loop(function (frame) {
@@ -52,27 +52,6 @@ require(["three", "leapjs", "leap.screen-position", "leap.hand-entry"], function
     .on('handLost', function (hand) {
       console.log('hand lost', hand);
     });
-
-
-  var Cat = function () {
-    var cat = this;
-    var img = document.createElement('img');
-    img.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/109794/cat_2.png';
-    img.style.position = 'absolute';
-    img.onload = function () {
-      cat.setTransform([window.innerWidth / 2, window.innerHeight / 2], 0);
-      document.body.appendChild(img);
-    };
-
-    cat.setTransform = function (position, rotation) {
-      img.style.left = position[0] - img.width / 2 + 'px';
-      img.style.top = position[1] - img.height / 2 + 'px';
-      img.style.transform = 'rotate(' + -rotation + 'rad)';
-      img.style.webkitTransform = img.style.MozTransform = img.style.msTransform =
-        img.style.OTransform = img.style.transform;
-    };
-
-  };
 
   cats[0] = new Cat();
 
