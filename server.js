@@ -4,7 +4,10 @@ var hmd = require("node-hmd"),
   WebSocketServer = require('ws').Server,
   path = require('path'),
   leapjs = require('leapjs'),
-  controller = new leapjs.Controller();
+  controller = new leapjs.Controller({
+    enableGestures: true,
+    frameEventName: 'animationFrame'
+  });
 
 var manager = hmd.createManager("oculusrift");
 if (typeof(manager) === "undefined") {
