@@ -35,26 +35,6 @@ requirejs.config({
 });
 
 
-require(["three", "leapjs", "cat", "leap.screen-position", "leap.hand-entry"], function (THREE, Leap, Cat) {
-  var cats = {};
-
-  Leap.loop(function (frame) {
-      frame.hands.forEach(function (hand, index) {
-        var cat = ( cats[index] || (cats[index] = new Cat()) );
-        cat.setTransform(hand.screenPosition(), hand.roll());
-      });
-    })
-    .use('handEntry')
-    .use('screenPosition', {scale: 0.25})
-    .on('handFound', function (hand) {
-      console.log('hand found', hand);
-    })
-    .on('handLost', function (hand) {
-      console.log('hand lost', hand);
-    });
-
-  cats[0] = new Cat();
-
-// This allows us to move the cat even whilst in an iFrame.
-  Leap.loopController.setBackground(true)
+require(['app'], function (app) {
+  app.init();
 });
