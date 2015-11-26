@@ -39,7 +39,7 @@ requirejs.config({
 });
 
 
-require(['app', "OrbitControls", "leapjs", "leapjswithplugins", "leap.widgets"], function (app, OrbitControls, Leap) {
+require(['app', "OrbitControls", "three", "leapjs", "leapjswithplugins", "leap.widgets"], function (app, OrbitControls, THREE, Leap) {
   //app.init();
   Leap.loop({background: true})
     .use('transform', {
