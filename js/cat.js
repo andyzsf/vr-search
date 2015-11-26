@@ -3,7 +3,7 @@ define('cat', [], function() {
   var Cat = function () {
     var cat = this;
     var img = document.createElement('img');
-    img.src = './imgs/1.jpg';
+    img.src = './imgs/1.png';
     img.style.position = 'absolute';
     img.onload = function () {
       cat.setTransform([window.innerWidth / 2, window.innerHeight / 2], 0);
