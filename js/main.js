@@ -52,19 +52,13 @@ require(['app', "OrbitControls", "three", "leapjs", "leapjswithplugins", "leap.w
     })
     .use('proximity');
 
-
   // Set up scene
-
   var scene = Leap.loopController.plugins.boneHand.scene;
   var camera = Leap.loopController.plugins.boneHand.camera;
-  var renderer = Leap.loopController.plugins.boneHand.renderer;
-  camera.position.set( 0, 0.3, 0.6);
+  camera.position.set(0, 0.3, 0.6);
 
-  var controls = new THREE.OrbitControls( camera, renderer.domElement );
-
-  var axisHelper = new THREE.AxisHelper( 0.1 );
-  scene.add( axisHelper );
-
+  var axisHelper = new THREE.AxisHelper(0.1);
+  scene.add(axisHelper);
 
   var planeGeo = new THREE.PlaneGeometry(0.1, 0.2);
   var material = new THREE.MeshPhongMaterial({side: THREE.DoubleSide});
@@ -73,22 +67,10 @@ require(['app', "OrbitControls", "three", "leapjs", "leapjswithplugins", "leap.w
   planeMesh.position.setY(0.1);
   planeMesh.name = "planeMesh";
 
-  longThrow = 0.05;
-  var base = new THREE.Mesh(new THREE.BoxGeometry(0.1, longThrow, longThrow), new THREE.MeshPhongMaterial({color: 0x222222}));
-//  base.position.set(0.05, -0.05, -0.1);
-  base.position.set(0.05, 0.05, -0.1);
-  base.rotateY(Math.PI / 4);
+  planeMesh.position.set(0.05, 0.05, -0.1);
+  planeMesh.rotateY(Math.PI / 4);
 
-  planeMesh.position.set(
-    0,
-    planeMesh.geometry.parameters.height / 2 - longThrow / 2,
-    longThrow / 2 + 0.0002
-  );
-  base.add(planeMesh);
-
-  scene.add(base);
+  scene.add(planeMesh);
 
   var plane = new InteractablePlane(planeMesh, Leap.loopController);
-
-
 });
