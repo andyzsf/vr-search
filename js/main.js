@@ -24,26 +24,10 @@ requirejs.config({
       exports: 'Leap',
       deps: ['leapjs']
     },
-    //'leap.screen-position': {
-    //  exports: 'Leap',
-    //  deps: ['leapjs']
-    //},
-    //'leap.hand-entry': {
-    //  exports: 'Leap',
-    //  deps: ['leapjs']
-    //},
     'leap.widgets': {
       exports: 'Leap',
       deps: ['leapjs']
     },
-    //'leap.transform': {
-    //  exports: 'Leap',
-    //  deps: ['leapjs']
-    //},
-    //'leap.bone-hand': {
-    //  exports: 'Leap',
-    //  deps: ['leapjs']
-    //},
     'OrbitControls': {
       exports: 'OrbitControls',
       deps: ['three']
