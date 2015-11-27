@@ -1,4 +1,4 @@
-define('app', ["three", "leapjs", "cat", "leap.screen-position", "leap.hand-entry"], function (THREE, Leap, Cat) {
+define('app', ["three", "leapjs", "cat"], function (THREE, Leap, Cat) {
   var app = {
     init: function () {
       console.log("app ------------------ start");
