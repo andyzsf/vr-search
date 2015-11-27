@@ -23,6 +23,7 @@ define('app', ["three", "leapjs", "cat"], function (THREE, Leap, Cat) {
           }
         }
         console.log(swipeDirection);
+        window.swipeDirection = swipeDirection;
         return swipeDirection;
       };
 
