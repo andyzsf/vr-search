@@ -14,6 +14,7 @@ requirejs.config({
     "leap.transform": "libs/leap.transform",
     "leap.widgets": "libs/leap-widgets-0.1.0",
     "leap.bone-hand": "libs/leap.bone-hand",
+    "minievents": "libs/minivents.amd",
     leapjswithplugins: "libs/leap-plugins-0.1.11.min"
   },
   shim: {
